@@ -1,0 +1,30 @@
+<header class="fixed top-0 left-0 z-50 w-full py-2 m-auto bg-white shadow-md ">
+    <div class="grid items-center grid-cols-5 m-auto max-w-7xl">
+        <div class="col-span-1 font-bold text-stone-800">
+          LK Education
+        </div>
+        <nav class=" col-span-3 text-center [&>a]:text-stone-800 hover:[&>a]:text-blue-500 hover:[&>a]:border-b-4 hover:[&>a]:border-sky-700 [&>a]:px-3 [&>a]:py-2" >
+          <a href="{% url 'index' %}">Accueil</a>
+          <a  href="{% url 'event' %}">Evènements</a>
+          <a href="{% url 'index' %}">A propos</a>
+          <a href="{% url 'galerie' %}">Galerie</a>
+          <a href="{% url 'contact' %}">Contact</a>
+        </nav>
+        <a href="{% url 'appointment' %}">
+          <button  class="w-40 px-3 py-2 text-white bg-blue-500 rounded-lg focus:ring-blue-200 focus:ring-4 focus:outline-none active:bg-blue-700 from-cyan-400 bg-gradient-to-br hover:bg-blue-600">
+            Rendez-vous
+          </button>
+        </a>
+        <a href="{% url 'signup' %}"
+          <button  class="w-40 px-3 py-2 text-white bg-blue-500 rounded-lg focus:ring-blue-200 focus:ring-4 focus:outline-none active:bg-blue-700 from-cyan-400 bg-gradient-to-br hover:bg-blue-600">
+            Créez un compte
+          </button>
+        </a>
+        <a href="{% url 'appointment' %}"
+          <button  class="w-40 px-3 py-2 text-white bg-blue-500 rounded-lg focus:ring-blue-200 focus:ring-4 focus:outline-none active:bg-blue-700 from-cyan-400 bg-gradient-to-br hover:bg-blue-600">
+            Connexion
+          </button>
+        </a>
+       
+    </div>
+</header>

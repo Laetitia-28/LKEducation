@@ -1,0 +1,54 @@
+{% extends "_base.html" %}
+
+{% block content %}
+{% load static %}
+<!-- Header section -->
+<section class="w-full py-20">
+    <div class="grid w-full grid-cols-3 gap-4 m-auto max-w-7xl">
+                <div class="row-span-1 overflow-hidden " onclick="creatediapo($event)">
+                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
+                </div>
+                <div class="row-span-1 overflow-hidden ">
+                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
+                </div>
+                <div class="row-span-1 overflow-hidden ">
+                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
+                </div>
+                <div class="row-span-1 overflow-hidden ">
+                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
+                </div>
+                <div class="row-span-1 overflow-hidden ">
+                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
+                </div>
+                <div class="row-span-1 overflow-hidden ">
+                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
+                </div>
+                <div class="row-span-1 overflow-hidden ">
+                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
+                </div>
+                <div class="row-span-1 overflow-hidden ">
+                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
+                </div>
+                <div class="row-span-1 overflow-hidden ">
+                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
+                </div>
+            </tr>
+        </table>
+    </div>
+</section>
+<section id="detailImage"  class="fixed top-0 left-0 items-center hidden w-full h-full text-center" style="background-color: rgba(0, 0, 0, 0.302);">
+    <div class="max-w-6xl m-auto overflow-hidden" >
+        <img src="" id="itemdiapo" class="w-full h-full rounded-md" alt="Heros image" />
+    </div>
+    <button onclick="closediapo()" class="w-full max-w-4xl px-3 py-2 m-auto mt-2 text-white bg-red-500 rounded-lg focus:ring-red-200 focus:ring-4 focus:outline-none active:bg-red-700 from-rose-400 bg-gradient-to-br hover:bg-red-600">
+        Fermer
+    </button>
+    <button style="right: 0;" class="absolute w-40 px-4 py-2 -translate-y-1/2 bg-white top-1/2 "   >
+        Suivant
+    </button>
+    <button style="left: 0;" class="absolute w-40 px-4 py-2 -translate-y-1/2 bg-white top-1/2 ">
+        Precedent
+    </button>
+</section>
+<script src="{% static 'js/diaporama.js' %}" ></script>
+{% endblock content %}

@@ -1,0 +1,27 @@
+<div id="messagerChatbot" class="relative hidden h-full max-w-sm p-2 bg-white rounded-lg " >
+    <div id="header-messager-box" class="flex items-center justify-start h-14 ">
+        <div class="relative z-10 flex items-start gap-5 text-center">
+        </div>
+    </div>
+    <div class="relative z-10 w-full overflow-hidden rounded-md bg-stone-200 ">
+        <div class="flex flex-col items-center justify-center h-64" id="body-messager-box">
+            <span>Que puis-je fait pour vous?</span>
+            <ul>
+                <li class="flex flex-row px-3 py-2 m-2 bg-white rounded-lg">Voulez vous prendre rendez-vous</li>
+                <li class="flex flex-row px-3 py-2 m-2 bg-white rounded-lg">Prendre rendez-vous</li>
+                <li class="flex flex-row px-3 py-2 m-2 bg-white rounded-lg">Prendre rendez-vous</li>
+            </ul>
+        </div>
+    </div>
+    <div id="footer-messager-box" class="relative z-10 flex flex-row w-full pt-3 pb-3 pl-4 pr-4 justify-evenly">
+        <input type="text" value="" class="w-2/3 p-1 border rounded-lg outline-none bg-stone-100" name="text" id="text">
+        <button
+            class="px-3 py-2 text-white bg-blue-500 rounded-lg focus:ring-blue-200 focus:ring-4 focus:outline-none active:bg-blue-700 from-cyan-400 bg-gradient-to-br hover:bg-blue-600">Envoyer</button>
+    </div>
+    <button type="button" onclick="closeBox()"
+        class="absolute z-10 p-1 px-3 overflow-hidden rounded-full bg-inherit hover:bg-red-500 hover:from-rose-200 hover:text-white hover:bg-gradient-to-br top-6 right-2">Fermer</button>
+</div>
+
+<div id="buttonChatbot" class="block font-bold text-white" onclick="openBox()">
+    Chatbot
+</div>

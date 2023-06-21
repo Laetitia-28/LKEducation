@@ -1,0 +1,78 @@
+{% extends "_base.html" %}
+
+{% block content %}
+{% load static %}
+
+
+<!-- Heros section -->
+<section class="relative m-auto overflow-hidden bg-black ">
+  <img src="{% static 'assets/etudiant-tir-moyen-etudiant-ordinateur-portable.jpg' %}" class="opacity-20" alt="Heros image" />
+  <div class="absolute w-full top-2/4 -translate-y-2/4">
+   <div class="m-auto max-w-7xl">
+    <h1 class="my-4 text-white text-7xl">Titre Principal</h1>
+    <p class="max-w-2xl text-xl text-white/80">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quidem ipsum exercitationem aperiam eveniet harum amet accusamus corrupti! Libero laudantium dolores eaque explicabo eveniet, nulla laboriosam esse aliquam omnis pariatur?</p>
+  </div>
+  </div>
+  <img src="{% static 'assets/svg1.png' %}" class="absolute -bottom-1/4 -right-64" alt="Heros image" />
+  <img src="{% static 'assets/svg2.png' %}" class="absolute top-1/2 -left-40" alt="Heros image" />
+</section>
+<section class="flex items-center w-full h-full min-h-screen bg-white">
+ <div class="grid items-center h-full grid-cols-3 gap-10 m-auto max-w-7xl">
+    <div class="h-full col-span-1">
+      <span class="text-xs font-bold uppercase text-slate-300">Nos services</span>
+      <h2 class="my-5 text-4xl font-bold text-stone-800">Services et renseignements</h2>
+      <p class="max-w-md text-lg text-stone-600 ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. At esse fuga voluptatibus natus quidem, sunt atque. Repellendus aut necessitatibus maxime, nam ipsam minus eius porro, quis laudantium id asperiores quia.</p>
+      <button class="w-40 px-3 py-2 my-3 text-white bg-blue-500 rounded-lg focus:ring-blue-200 focus:ring-4 focus:outline-none active:bg-blue-700 from-cyan-400 bg-gradient-to-br hover:bg-blue-600">
+        Rendez-vous
+    </button>
+    </div>
+    <div class="grid items-center h-full grid-cols-2 col-span-2 grid-rows-2 text-white">
+      <div class="col-span-1 row-span-1 h-52 rounded-t-md rounded-l-md bg-cyan-600 from-blue-400 bg-gradient-to-br p-7">
+        <h2 class="text-3xl font-bold">Service 1</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae esse error exercitationem ut minus quaerat est ad eius nisi tenetur ratione, reprehenderit laborum excepturi temporibus iste odit nam enim dignissimos?</p>
+      </div>
+      <div class="col-span-1 row-span-1 h-52 p-7">
+        <h2 class="text-3xl font-bold text-stone-800">Service 2</h2>
+        <p class="text-stone-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere tenetur excepturi qui unde, alias porro. Facilis numquam sit possimus quae labore placeat cumque reiciendis dolor eveniet cum delectus, ea voluptate?</p>
+      </div>
+      <div class="col-span-1 row-span-1 h-52 p-7">
+        <h2 class="text-3xl font-bold text-stone-800">Service 3</h2>
+        <p class=" text-stone-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium dolorum rerum vel ullam itaque cum iusto dolores illum, hic optio. Alias ratione quas architecto asperiores inventore veritatis eaque est dolor.</p>
+      </div>
+      <div class="col-span-1 row-span-1 h-52 p-7 rounded-b-md rounded-r-md bg-cyan-600 from-blue-400 bg-gradient-to-br">
+        <h2 class="text-3xl font-bold">Service 4</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam soluta ex iure perferendis quasi, quam ipsam nam, voluptatum ad tempore aut corporis! Voluptatem vero reprehenderit tempora porro error consectetur dolor?</p>
+      </div>
+    </div>
+ </div>
+</section>
+<section class="grid items-center w-full h-full min-h-screen grid-cols-2 gap-10 pt-20 bg-white">
+     <div class="h-full col-span-1">
+      <img src="{% static 'assets/union-2.png' %}"  alt="Heros image" />
+     </div>
+     <div>
+      <h2 class="my-5 text-4xl font-bold text-stone-800">Comment fonctionne le programme de développement des talents étrangers en environnement ?</h2>
+        <ul role="list" class="pl-5 space-y-3 text-lg list-disc marker:text-sky-600 text-stone-700">
+          <li>Consultant agréé au Canada</li>
+          <li>Consultant agréé au Canada</li>
+          <li>Consultant agréé au Canada</li>
+        </ul>
+     </div>
+ </section>
+ <section class="relative py-20 overflow-hidden" id="about">
+  <img src="{% static 'assets/svg56.png' %}" class="absolute -top-10 -left-40" alt="Heros image" />
+  <h2 class="py-2 my-8 text-4xl font-bold text-center text-sky-700">A propos de nous</h2>
+  <p class="max-w-4xl m-auto text-lg text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quos natus beatae necessitatibus nemo molestiae ab illo distinctio. Eligendi repudiandae cupiditate similique quis quasi officia commodi hic iusto sapiente recusandae.</p>
+  <div class="grid grid-cols-3 my-8">
+    <div class="col-span-1"></div>
+    <div class="flex col-span-2 gap-2">
+      <div class="bg-black w-96 h-52 ">
+  
+      </div>
+      <div class="bg-black w-96 h-52 ">
+  
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

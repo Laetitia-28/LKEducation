@@ -1,0 +1,60 @@
+{% extends "_base.html" %}
+
+{% block content %}
+{% load static %}
+<!-- Header section -->
+
+
+<!-- Heros section -->
+<section class="bg-white py-40 ">
+    <div class="m-auto max-w-7xl grid grid-cols-2 items-center gap-4">
+        <div>
+            <img src="{% static 'assets/8401.jpg' %}"  alt="Heros image" />
+        </div>
+        <div>
+            <h1 class="text-7xl text-stone-800 my-4">Evènements</h1>
+            <p class="max-w-2xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea ipsa natus temporibus. Expedita tenetur quia officia voluptates eveniet. Nesciunt labore cum harum reprehenderit ipsum odio officiis dignissimos totam distinctio placeat?</p>    
+        </div>
+    </div>
+</section>
+<section class="min-h-screen h-full bg-white flex items-center  w-full">
+ <div class="max-w-7xl h-full w-full  m-auto min-w-max ">
+    <div class=" w-full">
+      <span class="uppercase text-xs text-slate-300 font-bold">Evènements</span>
+      <ul class="grid grid-cols-4 items-center text-center">
+        <li class="bg-blue-50 py-2 border-b-0 border-2 border-stone-200">Journées portes ouvertes</li>
+        <li class=" py-2">Webinars</li>
+        <li class=" py-2">Data days</li>
+        <li class=" py-2">Salon de recrutement</li>   
+      </ul>
+    </div>
+    <div class="w-full h-full items-center p-7 bg-blue-50 border-2 border-stone-200 border-t-0">
+        <h1 class="text-2xl first-letter:text-stone-800 text-stone-600 my-4 first-letter:text-7xl first-letter:font-bold ">Journées portes ouvertes</h1>
+        <ul role="list" class=" marker:text-sky-600 list-disc space-y-3 max-w-2xl">
+            {% for item in events %}
+            <li class="bg-white py-2 border px-3 flex  " style="justify-content: space-between;"><span>{{ item.theme }}</span> <button id="{{ item.}}" class="text-blue-500">Voir les détails</button></li>
+            {% endfor %}
+        </ul> 
+        <p class="text-stone-500 mt-4 max-w-2xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolore cupiditate molestias ipsam deserunt, iste quod rem suscipit, minus vitae vel dicta dignissimos eligendi ullam perspiciatis asperiores voluptas rerum nam.</p>
+        <button class="w-40 mt-4  bg-blue-500 focus:ring-blue-200 focus:ring-4 focus:outline-none active:bg-blue-700 from-cyan-400 bg-gradient-to-br px-3 py-2 rounded-lg text-white hover:bg-blue-600">
+            Je participe
+        </button>
+    </div>
+ </div>
+</section>
+ <section class="py-20">
+    <div class="m-auto max-w-7xl grid grid-cols-2 items-center gap-4">
+        <div>
+            <img src="{% static 'assets/8401.jpg' %}" class="rounded-full" alt="Heros image" />
+        </div>
+        <div>
+            <h1 class="text-3xl text-stone-800 my-4">Vous n'etes pas disponible?</h1>
+            <p class="max-w-2xl text-stone-600">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea ipsa natus temporibus. Expedita tenetur quia officia voluptates eveniet. Nesciunt labore cum harum reprehenderit ipsum odio officiis dignissimos totam distinctio placeat?</p>    
+            <a href="mailto:hunterjul007@gmail.com">
+                <button class="w-40 mt-4  bg-blue-500 focus:ring-blue-200 focus:ring-4 focus:outline-none active:bg-blue-700 from-cyan-400 bg-gradient-to-br px-3 py-2 rounded-lg text-white hover:bg-blue-600">Contactez Nous</button>
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

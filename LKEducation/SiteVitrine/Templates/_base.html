@@ -1,0 +1,34 @@
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LK Education</title>
+
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+
+</head>
+
+<body class="relative bg-blue-50">
+    <!-- Header section -->
+    {% include "components/header.html" %}
+    <!-- Fin Header section -->
+    {% block content %}
+    {% endblock content %}
+    <!-- Footer section -->
+    <section class="fixed max-w-sm p-5 rounded-lg shadow-2xl bg-sky-700 from-cyan-200 bg-gradient-to-br right-10 bottom-10">
+        {% include "components/chatbot.html" %}
+    </section>
+    {% include "components/footer.html" %}
+    <!-- Fin Footer section -->
+    <script src="{% static 'js/diaporama.js' %}" ></script>
+</body>
+
+</html>
