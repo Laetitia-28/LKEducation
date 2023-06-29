@@ -2,6 +2,7 @@
 {% extends '_base.html' %}
 
 {% block content %}
+{% load static %}
 
 <form method="POST" enctype="multipart/form-data">
     <div class="w-full h-full pt-40 m-auto max-w-7xl">
@@ -29,6 +30,9 @@
             class="w-40 px-3 py-2 mx-4 text-white bg-blue-500 rounded-lg focus:ring-blue-200 focus:ring-8 focus:outline-none active:bg-blue-700 from-cyan-400 bg-gradient-to-br hover:bg-blue-600">
             Créer
         </button>
+        <div class="txt-div">
+           <br> Vous avez déjà un compte ? <a href="{% url 'login' %}" style="color: red;">Se connecter</a>
+        </div>
     </div>
 </form>
 

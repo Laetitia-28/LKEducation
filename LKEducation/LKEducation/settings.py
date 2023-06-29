@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'phonenumber_field',
     'SiteVitrine.apps.SitevitrineConfig',
+    'Gestion.apps.GestionConfig',
     'compressor',  # new
 ]
 
@@ -78,6 +79,8 @@ TEMPLATES = [
 COMPRESS_ROOT = BASE_DIR / 'static'
 
 COMPRESS_ENABLED = True
+
+#COMPRESS_URL = '/static/'
 
 STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
@@ -133,6 +136,12 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'SiteVitrine/static/')
 STATICFILES_DIRS = [
     BASE_DIR /"static"/"admin",
+    BASE_DIR /"static"/"src",
+    BASE_DIR /"static"/"dist",
+    BASE_DIR /"static"/"build",
+    BASE_DIR /"static"/"plugins",
+    BASE_DIR /"static"/"js",
+    BASE_DIR /"static"/"cache"
 ]
 MEDIA_URL='/media/'
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

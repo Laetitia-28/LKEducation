@@ -12,7 +12,10 @@
 
     {% compress css %}
     <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    <link rel="stylesheet" href="{% static 'dist/css/font-awesome.min.css' %}">
     {% endcompress %}
+
+    {% block css %} {% endblock css %}
 
 </head>
 

@@ -4,6 +4,19 @@ from .models import UserManager, user
 from phonenumber_field.formfields import PhoneNumberField
 
 
+class LoginForm(ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+    class Meta:
+        model = user
+        fields = ["email", "password"]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        
+        for field_name, field in self.fields.items():
+            field.widget.attrs.update({'class': 'my-form'})
+
+
 class SignupForm(ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     contact = PhoneNumberField(widget=forms.TextInput())

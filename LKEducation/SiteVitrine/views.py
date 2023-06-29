@@ -1,8 +1,18 @@
-#from django.shortcuts import render
-
-# from django.shortcuts import render, redirect
-from .forms import SignupForm, ContactForm
+from .forms import LoginForm, SignupForm, ContactForm
 from django.shortcuts import render, redirect
+
+
+def login(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            form.save
+            return redirect('Gestion:index') #Replace 'dashboard' with the url name for your dashboard page
+        
+    else:
+        form = LoginForm()
+
+    return render(request, 'login.html', {'form' : form})
 
 def signup(request):
     if request.method == 'POST':
@@ -45,6 +55,3 @@ def galerie(request):
     context = {}
     return render(request, 'galerie.html', context)
 
-# def signup(request):
-#     context = {}
-#     return render(request, 'signup.html', context)

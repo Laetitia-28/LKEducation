@@ -20,7 +20,51 @@
   --tw-ring-color: #7dd3fc;
   box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.5);
 }
-
+.container{
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.grid-col{
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 1px 13px 0px #c0c0c03b;
+}
+label{
+  font-size: 16px;
+  color: #4d4d4d;
+  font-weight: 400;
+}
+input,textarea{
+  margin: 20px 0px 20px 0px;
+  width: 100%;
+  max-width: 94%;
+  padding: 12px 8px;
+  border: 1px solid silver;
+  background-color: #fff;
+  font-size: 14px;
+  border-radius: 8px;
+}
+textarea{
+  resize: none;
+}
+input:focus,textarea:focus{
+  outline: none;
+  box-shadow: 0px 0px 0px 4px #add2ffa3;
+  background-color: #fff;
+}
+.grid{
+  display: grid; gap: 1rem; 
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media screen and (max-width: 500px) {
+  .grid{
+      display: block; gap: 1rem; 
+      
+  }
+}
 *,
 ::before,
 ::after {
