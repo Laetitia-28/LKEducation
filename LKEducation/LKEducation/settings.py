@@ -86,6 +86,10 @@ STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
 WSGI_APPLICATION = 'LKEducation.wsgi.application'
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Default authentication backend
+    #'path.to.YourCustomBackend',  # Replace 'path.to.YourCustomBackend' with the actual path to your custom backend
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -150,3 +154,12 @@ MEDIA_URL='/media/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# EMAIL SETTINGS 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = 'makenabgte@gmail.com'
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False

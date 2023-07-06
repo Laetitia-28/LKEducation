@@ -20,8 +20,9 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
-   # path('admin/', admin.site.urls),
+   path('admin/', admin.site.urls),
     path('',include("SiteVitrine.urls")),
-    path('Gestion/',include("Gestion.urls", namespace='Gestion')),
+    path('',include("django.contrib.auth.urls")),
+    path('Gestion/',include("Gestion.urls", namespace='Gestion'))
 ]
 urlpatterns += staticfiles_urlpatterns()

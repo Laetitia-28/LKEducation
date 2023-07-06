@@ -41,51 +41,37 @@ class UserManager(BaseUserManager): # Pour les paramètres de connexion
     def create_user(self, email, password=None):
         if not email:
             raise ValueError('Les utilisateurs doivent avoir une adresse mail')
-        User = self.model(email=self.normalize_email(email), )
-        User.set_password(password)
-        User.save(using=self._db)
-        return User
-
-    # def create_studentuser(self, email, password):
-    #     User = self.create_user(email, password=password, )
-    #     User.etudiant = True
-    #     User.save(using=self._db)
-    #     return User
-    
-    # def create_clientuser(self, email, password):
-    #     User = self.create_user(email, password=password, )
-    #     User.etudiant = True
-    #     User.client = True
-    #     User.save(using=self._db)
-    #     return User
+        user = self.model(email=self.normalize_email(email), )
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
 
     def create_staffuser(self, email, password):
-        User = self.create_user(email, password=password, )
-        User.staff = True
-        User.save(using=self._db)
-        return User
+        user = self.create_user(email, password=password, )
+        user.is_staff = True
+        user.save(using=self._db)
+        return user
 
     def create_superuser(self, email, password):
-        User = self.create_user(email, password=password, )
-        User.staff = True
-        User.admin = True
-        User.save(using=self._db)
-        return User
+        user = self.create_user(email, password=password, )
+        user.is_staff = True
+        user.admin = True
+        user.save(using=self._db)
+        return user
     
 
-class user(AbstractBaseUser):
+class User(AbstractBaseUser):
     nom = models.CharField(max_length=50, default="")
     prenom = models.CharField(max_length=50, default="")
     email = models.EmailField(unique=True)
     contact = PhoneNumberField()
     date_naissance = models.DateField(default=datetime.date.today)
     sexe = models.CharField(max_length=1, default="F")
-    password = models.CharField (max_length=10)
     photo = models.ImageField(upload_to='location', blank=False, null=True)
-    message = models.TextField(default="")
+    #message = models.TextField(blank=True) #Blank messages will concern the signup page and those not blank concern the contact page
     created_at = models.DateTimeField(auto_now_add=True) #date création utilisateur automatique
     updated_at = models.DateTimeField(auto_now=True) # date modification automatique également
-    is_admin = models.BooleanField(default=True)
+    admin = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
     def _str_(self):
@@ -107,37 +93,46 @@ class user(AbstractBaseUser):
         return True
 
 
+#CLASSE CONTACT
+class Contact(models.Model):
+    nom_et_prenom = models.CharField(max_length=50, default="")
+    email = models.EmailField()
+    contact = PhoneNumberField()
+    sujet = models.CharField(max_length=50, default="")
+    message = models.TextField(blank=False) #Blank messages will concern the signup page and those not blank concern the contact page
+
+
 #CLASSE MODELE RENDEZ-VOUS
 class modele_rdv(models.Model):
     DateDebut = models.DateTimeField()
     DateFin = models.DateTimeField()
     disponible = models.BooleanField(default=True)
-    user = models.ForeignKey(user, on_delete=models.PROTECT) #clé étrangère utilisateur ayant crée le rendez-vous
+    user = models.ForeignKey(User, on_delete=models.PROTECT) #clé étrangère utilisateur ayant crée le rendez-vous
     
     def __str__(self):
         return f"{self.user} {self.DateDebut} {self.disponible}"
 
 #CLASSE RENDEZ VOUS
 class rendezvous(models.Model):
-    user = models.ForeignKey(user, on_delete=models.PROTECT)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
     rdv = models.ForeignKey(modele_rdv, on_delete=models.PROTECT)
 
 #CLASSE NOTIFICATION
 class notification(models.Model):
     message = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(user, on_delete=models.PROTECT) #clé étrangère matérialisant le destinataire du message
+    user = models.ForeignKey(User, on_delete=models.PROTECT) #clé étrangère matérialisant le destinataire du message
 
 #CLASSE DOCUMENT
 class document(models.Model):
     intitule = models.CharField(max_length=20, default=" ")
     document = models.FileField(upload_to="location", default=" ") # Mettre le dossier dans lequel les documents seront importées
     taille = models.IntegerField() # la taille des documents ne doit pas excéder 5Mo
-    user = models.ForeignKey(user, on_delete=models.PROTECT)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
 #CLASSE HISTORIQUE DE PAIE
 class historique_paie(models.Model):
     montant = models.FloatField()
     nature = models.CharField(max_length=10) # Il peut s'agir d'un paiement cash ou en ligne
     date = models.DateTimeField() #date à laquelle la transaction a été effectuée
-    user = models.ForeignKey(user, on_delete=models.PROTECT) #user client ayant effectué la transaction
+    user = models.ForeignKey(User, on_delete=models.PROTECT) #user client ayant effectué la transaction
