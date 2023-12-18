@@ -1,30 +1,213 @@
-<header class="fixed top-0 left-0 z-50 w-full py-2 m-auto bg-white shadow-md ">
-    <div class="grid items-center grid-cols-5 m-auto max-w-7xl">
-        <div class="col-span-1 font-bold text-stone-800">
-          LK Education
-        </div>
-        <nav class=" col-span-3 text-center [&>a]:text-stone-800 hover:[&>a]:text-blue-500 hover:[&>a]:border-b-4 hover:[&>a]:border-sky-700 [&>a]:px-3 [&>a]:py-2" >
-          <a href="{% url 'index' %}">Accueil</a>
-          <a  href="{% url 'event' %}">Evènements</a>
-          <a href="{% url 'index' %}">A propos</a>
-          <a href="{% url 'galerie' %}">Galerie</a>
-          <a href="{% url 'contact' %}">Contact</a>
-        </nav>
-        <a href="{% url 'appointment' %}">
-          <button  class="w-40 px-3 py-2 text-white bg-blue-500 rounded-lg focus:ring-blue-200 focus:ring-4 focus:outline-none active:bg-blue-700 from-cyan-400 bg-gradient-to-br hover:bg-blue-600">
-            Rendez-vous
-          </button>
-        </a>
-        <a href="{% url 'signup' %}"
-          <button  class="w-40 px-3 py-2 text-white bg-blue-500 rounded-lg focus:ring-blue-200 focus:ring-4 focus:outline-none active:bg-blue-700 from-cyan-400 bg-gradient-to-br hover:bg-blue-600">
-            Créez un compte
-          </button>
-        </a>
-        <a href="{% url 'login' %}"
-          <button  class="w-40 px-3 py-2 text-white bg-blue-500 rounded-lg focus:ring-blue-200 focus:ring-4 focus:outline-none active:bg-blue-700 from-cyan-400 bg-gradient-to-br hover:bg-blue-600">
-            Connexion
-          </button>
-        </a>
-       
-    </div>
+{% load static %}
+
+<style>
+
+  nav{
+    background: #fff;
+    padding: 5px 40px;
+  }
+  nav ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  nav ul li{
+    padding: 15px 0;
+    cursor: pointer;
+  }
+  nav ul li.items{
+    position: relative;
+    width: auto;
+    margin: 0 16px;
+    text-align: center;
+    order: 3;
+  }
+  nav ul li.items:after{
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 5px;
+    height: 2px;
+    width: 100%;
+    background: #3A72B9;
+    opacity: 0;
+    transition: all 0.2s linear;
+  }
+  nav ul li.items:hover:after{
+    opacity: 1;
+    bottom: 8px;
+  }
+  nav ul li.logo{
+    flex: 1;
+    cursor: default;
+    user-select: none;
+  }
+  nav ul li a{
+    font-size: large;
+    font-weight: 750;
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+  }
+  nav ul li:hover a{
+    color: #3A72B9;
+  }
+  nav ul li i{
+    font-size: 23px;
+  }
+  nav ul li.btn{
+    display: none;
+  }
+  nav ul li.btn.hide i:before{
+    content: '\f00d';
+  }
+  ul.partners-list {
+    display: none;
+    position: absolute;
+    background: white;
+    width: 130px;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    text-align: center;
+}
+  nav ul li:hover ul.partners-list {
+      display: block;
+  }
+  ul.partners-list li {
+      padding: 10px 0;
+      color: black;
+  }
+  ul.partners-list a {
+      text-decoration: none;
+      font-size: 18px;
+  }
+  ul.partners-list li:hover a {
+      color: #3A72B9;
+  }
+  #partners>button {
+    display: none;
+  }
+
+  #partners>a {
+    display: block;
+  }
+
+  @media screen and (max-width: 900px){
+    nav ul{
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav{
+      padding: 5px 30px;
+    }
+    nav ul li.logo{
+      flex: 0.6;
+    }
+    nav ul li.items{
+      width: 100%;
+      margin-bottom: -10px;
+      font-size: 15px;
+      font-weight: 400;
+      display: none;
+    }
+    nav ul li.items.show{
+      display: block;
+    }
+    nav ul li.btn{
+      display: block;
+    }
+    nav ul li.items:hover{
+      border-radius: 5px;
+      box-shadow: inset 0 0 10px #3A72B9,
+                  inset 0 0 20px #3A72B9;
+    }
+    nav ul li.items:hover:after{
+      opacity: 0;
+    }
+
+    li.partners {
+      padding-bottom: 10px;
+    }
+
+    #partners-list.active {
+      display: block;
+    }
+
+    #partners-list {
+        display: none;
+      }
+
+      ul.partners-list {
+        position: relative;
+        width: 95%;
+        margin: auto;
+        background: none;
+      }
+
+      #partners>button {
+        display: block;
+        margin: auto;
+        color: black;
+        font-size: 18px;
+        font-weight: 750;
+        text-decoration: none;
+        transition: .6s;
+        border: none;
+        background-color: inherit;
+        width: 100%;
+        height: 100%;
+      }
+
+      #partners:hover>button {
+        color: #3A72B9;
+      }
+
+      #partners>a {
+        display: none;
+      }
+  }
+    </style>
+
+<header class="fixed top-0  z-50 w-full shadow-md ">
+  <nav>
+    <ul>
+       <li class="logo"><img src="{% static 'logo.png' %}" alt=""></li>
+       <li class="items"><a href="{% url 'index' %}">Accueil</a></li>
+       <li class="items"><a href="{% url 'services' %}">Services</a></li>
+       <li class="items" id="partners"><button type="button">Partenaires</button>
+        <a href="{%url 'partenaires_france'%}">Partenaires</a>
+        <ul class="partners-list" id="partners-list">
+          <li><a href="{%url 'partenaires_france'%}">France</a></li>
+          <li><a href="{%url 'partenaires_allemagne'%}">Allemagne</a></li>
+          <li><a href="{%url 'partenaires_lituanie'%}">Lituanie</a></li>
+          <li><a href="{%url 'partenaires_espagne'%}">Espagne</a></li>
+       </ul>
+      </li>
+       <li class="items"><a href="{% url 'event' %}">Actualités</a></li>
+       <li class="items"><a href="{% url 'galerie' %}">Galerie</a></li>
+       <li class="items"><a href="{% url 'contact' %}">Contact</a></li>
+       <li class="btn"><a href="#"><i class="fa fa-bars"></i></a></li>
+    </ul>
+ </nav>
+ <script>
+    $(document).ready(function(){
+      let bool = false;
+      $('.btn').click(function(){
+        $('.items').toggleClass("show");
+        $('ul li').toggleClass("hide");
+      });
+      $("#partners").click(() => {
+        if (!bool) {
+          $('#partners-list').addClass("active");
+        } else {
+          $('#partners-list').removeClass("active");
+        }
+        bool = !bool;
+      })
+    });
+ </script>
 </header>
+    

@@ -10,14 +10,27 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{% static 'dist/img/user2-160x160.jpg' %}" class="img-circle elevation-2" alt="User Image">
+      {% if request.user.is_authenticated %}
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            {% if request.session.user_photo %}
+              <img src="{{ request.session.user_photo }}" alt="User">
+            {% else %}
+              <img src="{% static 'logo.png' %}" alt="Default Image">
+            {% endif %}
+          </div>
+          <div class="info">
+            {% if request.session.user_name %}
+              <a href="{% url 'Gestion:profile' %}" class="d-block">{{ request.session.user_name }}</a>
+            {% else %}
+            <a href="{% url 'Gestion:profile' %}" class="d-block">Rachel Kamdem</a>
+            {% endif %}
+          </div>
         </div>
-        <div class="info">
-          <a href="{% url 'Gestion:profile' %}" class="d-block">Alexander Pierce</a>
-        </div>
-      </div>
+      {% else %}
+        <a href="{% url 'login' %}" class="d-block">Se connecter</a>
+      {% endif %}
+    
 
       <!-- SidebarSearch Form -->
 
@@ -35,18 +48,36 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{% url 'Gestion:liste_clients' %}" class="nav-link">
+              <i class="fas fa-user"></i>
+              <p>Clients</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'Gestion:liste_contacts' %}" class="nav-link">
+              <i class="fas fa-envelope"></i>
+              <p>Messages</p>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
             <a href="{% url 'Gestion:rendez_vous' %}" class="nav-link">
               <i class="nav-icon fas fa-ellipsis-h"></i>
               <p>Mes rendez vous</p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
-            <a href="{% url 'Gestion:index' %}" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Etat de mon dossier</p>
+            <a href="{% url 'Gestion:candidatures' %}" class="nav-link">
+              <i class="fas fa-graduation-cap"></i></i>
+              <p>Candidatures</p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" style="background-color: white;">
+            <a href="{% url 'Gestion:logout' %}" class="nav-link">
+              <i class="fas fa-sign-out-alt"></i>
+              <p style="color: red;">Déconnexion</p>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
             <a href="{% url 'Gestion:index' %}" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
@@ -70,7 +101,7 @@
                 Galleries
               </p>
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

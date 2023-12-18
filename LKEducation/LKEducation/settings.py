@@ -58,6 +58,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+SESSION_COOKIE_AGE = 1800  # 30 minutes (exprimé en secondes)
+
 ROOT_URLCONF = 'LKEducation.urls'
 
 TEMPLATES = [
@@ -106,17 +108,29 @@ DATABASES = {
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    # },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 8,
+        }
+    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    # },
+    {
+        'NAME': 'SiteVitrine.validators.ContainsLetterValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'SiteVitrine.validators.ContainsNumberValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'SiteVitrine.validators.ContainsSpecialCaracterValidator',
     },
 ]
 
@@ -159,7 +173,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'makenabgte@gmail.com'
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = 'makenabgte@gmail.com' #adresse e-mail de l'expéditeur par défaut pour les e-mails sortants
+EMAIL_HOST_PASSWORD = 'qgkspfenbflevqsb'
 EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
+#EMAIL_USE_SSL = False
+
+#LOGIN SETTINGS 
+LOGIN_URL = 'login' #Cela signifie que si un utilisateur non authentifié tente 
+ #d'accéder à une page nécessitant une connexion, Django le redirigera automatiquement vers l'URL de connexion 'login'

@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% load static %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Messages des internautes</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+              <li class="breadcrumb-item active">Messages</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+
+              <div class="card">
+                
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-striped projects">
+                        <thead>
+                            <tr>
+                                <th style="width: 1%">
+                                    #
+                                </th>
+                                <th style="width: 15%">
+                                    Noms
+                                </th>
+                                <th style="width: 10%">
+                                    Email
+                                </th>
+                                <th style="width: 10%" >
+                                    Téléphone
+                                </th>
+                                <th style="width: 40%" >
+                                  Message
+                                </th>
+                                <th style="width: 20%" >
+                                  Statut
+                                </th>
+                                <th style="width: 10%">
+                                  Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          {% for contact in contacts %}
+                            <tr>
+                                <td>
+                                  <p>{{ contact.id }}</p>
+                                </td>
+                                <td>
+                                  <p>{{ contact.nom_et_prenom }}</p>
+                                </td>
+                                <td>
+                                  <p>{{ contact.email }}</p>
+                                </td>
+                                <td>
+                                  <p>{{ contact.contact }}</p>
+                                </td>
+                                <td>
+                                  <p>{{ contact.message }}</p>
+                                </td>
+                                <td>
+                                  {% if contact.est_repondu %}
+                                    <p class="badge badge-primary">Répondu</p>
+                                  {% else %}
+                                    <p class="badge badge-warning">Non répondu</p>
+                                  {% endif %}
+                                </td>
+                                <td>
+                                  <p></p>
+                                </td>
+                                <td class="project-state">
+                                  {% if user.id %}
+                                  <span>
+                                    <a href="{% url 'Gestion:repondre_message' contact.id %}" class="badge badge-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                    <a href="{% url 'Gestion:supprimer_message' contact.id %}" class="badge badge-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                  </span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                           
+                          {% endfor %} 
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+{% endblock content %}

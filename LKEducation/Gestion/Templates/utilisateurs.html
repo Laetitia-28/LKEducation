@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% load static %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Liste des Clients</h1>
+          </div><div></div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+              <li class="breadcrumb-item active">Clients</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- <style>
+        #modalForm{
+          display: flex;
+        }
+        #modalForm.hidden{
+          display: none;
+        }
+        .nav-content {
+          /* Ajustez ici les styles selon vos besoins */
+          position: relative; /* Assurez-vous que la position n'est pas statique */
+          z-index: 50; /* Utilisez une valeur inférieure à celle du modal */
+        }
+     </style> -->
+
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title"></h3>
+                  <div class="form-inline">
+                    
+                    <a href="{% url 'Gestion:ajout_client' %}"><button class="btn btn-primary">Ajouter un client</button></a>
+                  </div>
+
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th style="width: 1%">
+                                    #
+                                </th>
+                                <th style="width: 15%">
+                                    Nom
+                                </th>
+                                <th style="width: 15%">
+                                    Prenom
+                                </th>
+                                <th style="width: 10%" >
+                                    Téléphone
+                                </th>
+                                <th style="width: 10%" >
+                                  Mail
+                                </th>
+                                <th style="width: 30%" >
+                                  Notes
+                                </th>
+                                <th style="width: 10%">
+                                  Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          {% for user in users %}
+                            <tr>
+                                <td>
+                                  <p>{{ user.id }}</p>
+                                </td>
+                                <td>
+                                  <p>{{ user.nom }}</p>
+                                </td>
+                                <td>
+                                  <p>{{ user.prenom }}</p>
+                                </td>
+                                <td>
+                                  <p>{{ user.contact }}</p>
+                                </td>
+                                <td>
+                                  <p>{{ user.email }}</p>
+                                </td>
+                                <td>
+                                  <p>{{ user.commentaire }}</p>
+                                </td>
+                                
+                                <td class="project-state">
+                                  {% if user.id %}
+                                  <span>
+                                    <a href="{% url 'Gestion:modifier_client' user.id %}" class="badge badge-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                    <a href="{% url 'Gestion:supprimer_client' user.id %}" class="badge badge-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                  </span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                           
+                          {% endfor %} 
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+      <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+{% endblock content %}

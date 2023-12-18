@@ -2,6 +2,8 @@ from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 import datetime
+from django.contrib.auth.hashers import make_password, check_password
+
 # Create your models here.
     
 class galerie(models.Model):
@@ -57,22 +59,29 @@ class UserManager(BaseUserManager): # Pour les paramètres de connexion
         user.is_staff = True
         user.admin = True
         user.save(using=self._db)
-        return user
-    
+        return user  
 
 class User(AbstractBaseUser):
     nom = models.CharField(max_length=50, default="")
     prenom = models.CharField(max_length=50, default="")
     email = models.EmailField(unique=True)
     contact = PhoneNumberField()
+    nationalité = models.CharField(max_length=50, default="")
     date_naissance = models.DateField(default=datetime.date.today)
+    lieu = models.CharField(max_length=50, default="")
     sexe = models.CharField(max_length=1, default="F")
     photo = models.ImageField(upload_to='location', blank=False, null=True)
+    dernier_diplome = models.CharField(max_length=100, default="")
+    moyenne_et_annee = models.CharField(max_length=50, default="")
+    Etudes_en_cours = models.CharField(max_length=150, default="")
+    Domaine_etudes_en_France = models.CharField(max_length=100, default="")
+    commentaire = models.TextField(blank=True)
     #message = models.TextField(blank=True) #Blank messages will concern the signup page and those not blank concern the contact page
     created_at = models.DateTimeField(auto_now_add=True) #date création utilisateur automatique
     updated_at = models.DateTimeField(auto_now=True) # date modification automatique également
     admin = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     def _str_(self):
         return self.email
@@ -81,6 +90,20 @@ class User(AbstractBaseUser):
     REQUIRED_FIELDS = []
 
     objects = UserManager() # les utilisateurs sont les intances de classe de UserManager()
+
+    def get_full_name(self):
+        # Combiner le nom et le prénom pour obtenir le nom complet
+        return f"{self.nom} {self.prenom}"
+
+    def set_password(self, raw_password):
+       self.password = make_password(raw_password)
+
+    def check_password(self, raw_password):
+        return check_password(raw_password, self.password)
+    
+    def is_admin(self):
+        """L'utilisateur est-il un membre administrateur?"""
+        return self.admin
 
     def has_perm(self,perm,obj=None):
         """L'utilisateur a-t-il une autorisation spécifique ?"""
@@ -100,7 +123,7 @@ class Contact(models.Model):
     contact = PhoneNumberField()
     sujet = models.CharField(max_length=50, default="")
     message = models.TextField(blank=False) #Blank messages will concern the signup page and those not blank concern the contact page
-
+    est_repondu = models.BooleanField(default=False)
 
 #CLASSE MODELE RENDEZ-VOUS
 class modele_rdv(models.Model):

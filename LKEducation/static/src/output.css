@@ -6,26 +6,28 @@
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
-
+#carte {
+  margin-top: 100px;
+  width: 100%;
+}
 .my-form {
   width: 100%;
   height: 40px;
-  padding: 2px 2px;
-  font-weight: regular;
+  padding: 2px;
   border: 1px solid #e4e2e2 ;
 } 
 
-.my-form:focus {
+/* .my-form:focus {
   outline: none;
   --tw-ring-color: #7dd3fc;
   box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.5);
-}
+} */
 .container{
   background-color: rgb(240, 240, 240);
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  /* align-items: center; */
+  /* min-height: 100vh; */
 }
 .grid-col{
   padding: 20px;
@@ -40,21 +42,15 @@ label{
 input,textarea{
   margin: 20px 0px 20px 0px;
   width: 100%;
-  max-width: 94%;
-  padding: 12px 8px;
-  border: 1px solid silver;
+  border: 1px  silver;
   background-color: #fff;
-  font-size: 14px;
-  border-radius: 8px;
+  /* font-size: 14px; */
+  border-radius: 3px;
 }
 textarea{
-  resize: none;
+  min-height: 8em;
 }
-input:focus,textarea:focus{
-  outline: none;
-  box-shadow: 0px 0px 0px 4px #add2ffa3;
-  background-color: #fff;
-}
+
 .grid{
   display: grid; gap: 1rem; 
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -120,13 +116,55 @@ body {
   /* 1 */
   line-height: inherit;
   /* 2 */
+  background-image: url('/static/assets/Banner.png');
+  background-size: cover; /* Adapter à la largeur de l'écran */
+  background-attachment: fixed; /* Pour rendre l'image de fond statique */ 
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
-/*
-1. Add the correct height in Firefox.
-2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
-3. Ensure horizontal rules are visible by default.
-*/
+.content h3 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5em;
+  color: #131111;
+  margin: 15px 0;
+  color: #0a223d;
+}
+
+.content h5 {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #d32626;
+  margin: 0 0 10px 0;
+}
+
+.partners {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  max-width: 100%px;
+  margin: auto;
+  padding: 20px 10px;
+}
+
+.partners img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 860px) {
+  .partners{
+      margin-top: auto;
+  }
+}
+
 
 hr {
   height: 0;
@@ -290,7 +328,9 @@ button,
 }
 
 /*
-Use the modern Firefox focus style for all focusable elements.
+Use the modern Firefox 
+
+style for all focusable elements.
 */
 
 :-moz-focusring {
@@ -395,6 +435,7 @@ ol,
 ul,
 menu {
   list-style: none;
+
   margin: 0;
   padding: 0;
 }

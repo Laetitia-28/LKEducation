@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% load static %}
+
+<div class="content-edit " style="background-color: rgba(0, 0, 0, 0.384); width: 100%; height: 100%;">
+    <div class="card card-primary ">
+        <div class="card-header" style="padding: 10px; padding-top: 5px; text-align: center;">
+            <span class="card-title" style="text-align: center; float: none;">
+                Réponse au message de {{ contact.nom_et_prenom }}
+            </span><br>
+        </div>
+        <form method="post" class="edit-form"
+            style="padding: 30px; justify-content: center; display: flex; flex-direction: column;"
+            action="{% url 'Gestion:repondre_message' contact.id %}">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                <label class="" for="{{ field.id_for_label }}">{{ field.label }}</label> <br>
+                {{ field }}
+                {% for error in field.errors %}
+                <span style="color: red; font-size: 12px;">{{ error }}</span><br>
+                {% endfor %}
+            </div>
+            {% endfor %}
+            <!-- <button type="submit" class="btn btn-primary">Enregistrer les modifications</button> -->
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Envoyer la réponse</button>
+                <a href="{% url 'Gestion:liste_contacts' %}">
+                    <button type="button" class="btn btn-danger">Annuler</button>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+<style>
+    .content-edit {
+        display: flex;
+        justify-content: center;
+    }
+
+    input {
+        width: 100%;
+        margin-left: 10px;
+    }
+    .card{
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.158) ;
+        width: 650px;
+    }
+</style>
+
+{% endblock content %}
+
+<!-- repondre_message.html -->
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Envoyer la réponse">
+</form>

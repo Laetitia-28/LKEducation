@@ -22,6 +22,7 @@ class Enseignant(models.Model):
     email = models.EmailField(unique=True)
     contact = PhoneNumberField()
     date_naissance = models.DateField()
+    sexe = models.CharField(max_length=1, default='F')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

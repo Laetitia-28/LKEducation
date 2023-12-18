@@ -1,78 +1,724 @@
-{% extends "_base.html" %}
+{% extends "_base.html" %}st
 
 {% block content %}
 {% load static %}
 
+<style>
+  
 
-<!-- Heros section -->
-<section class="relative m-auto overflow-hidden bg-black ">
-  <img src="{% static 'assets/etudiant-tir-moyen-etudiant-ordinateur-portable.jpg' %}" class="opacity-20" alt="Heros image" />
-  <div class="absolute w-full top-2/4 -translate-y-2/4">
-   <div class="m-auto max-w-7xl">
-    <h1 class="my-4 text-white text-7xl">Titre Principal</h1>
-    <p class="max-w-2xl text-xl text-white/80">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quidem ipsum exercitationem aperiam eveniet harum amet accusamus corrupti! Libero laudantium dolores eaque explicabo eveniet, nulla laboriosam esse aliquam omnis pariatur?</p>
-  </div>
-  </div>
-  <img src="{% static 'assets/svg1.png' %}" class="absolute -bottom-1/4 -right-64" alt="Heros image" />
-  <img src="{% static 'assets/svg2.png' %}" class="absolute top-1/2 -left-40" alt="Heros image" />
-</section>
-<section class="flex items-center w-full h-full min-h-screen bg-white">
- <div class="grid items-center h-full grid-cols-3 gap-10 m-auto max-w-7xl">
-    <div class="h-full col-span-1">
-      <span class="text-xs font-bold uppercase text-slate-300">Nos services</span>
-      <h2 class="my-5 text-4xl font-bold text-stone-800">Services et renseignements</h2>
-      <p class="max-w-md text-lg text-stone-600 ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. At esse fuga voluptatibus natus quidem, sunt atque. Repellendus aut necessitatibus maxime, nam ipsam minus eius porro, quis laudantium id asperiores quia.</p>
-      <button class="w-40 px-3 py-2 my-3 text-white bg-blue-500 rounded-lg focus:ring-blue-200 focus:ring-4 focus:outline-none active:bg-blue-700 from-cyan-400 bg-gradient-to-br hover:bg-blue-600">
-        Rendez-vous
-    </button>
-    </div>
-    <div class="grid items-center h-full grid-cols-2 col-span-2 grid-rows-2 text-white">
-      <div class="col-span-1 row-span-1 h-52 rounded-t-md rounded-l-md bg-cyan-600 from-blue-400 bg-gradient-to-br p-7">
-        <h2 class="text-3xl font-bold">Service 1</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae esse error exercitationem ut minus quaerat est ad eius nisi tenetur ratione, reprehenderit laborum excepturi temporibus iste odit nam enim dignissimos?</p>
-      </div>
-      <div class="col-span-1 row-span-1 h-52 p-7">
-        <h2 class="text-3xl font-bold text-stone-800">Service 2</h2>
-        <p class="text-stone-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere tenetur excepturi qui unde, alias porro. Facilis numquam sit possimus quae labore placeat cumque reiciendis dolor eveniet cum delectus, ea voluptate?</p>
-      </div>
-      <div class="col-span-1 row-span-1 h-52 p-7">
-        <h2 class="text-3xl font-bold text-stone-800">Service 3</h2>
-        <p class=" text-stone-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium dolorum rerum vel ullam itaque cum iusto dolores illum, hic optio. Alias ratione quas architecto asperiores inventore veritatis eaque est dolor.</p>
-      </div>
-      <div class="col-span-1 row-span-1 h-52 p-7 rounded-b-md rounded-r-md bg-cyan-600 from-blue-400 bg-gradient-to-br">
-        <h2 class="text-3xl font-bold">Service 4</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam soluta ex iure perferendis quasi, quam ipsam nam, voluptatum ad tempore aut corporis! Voluptatem vero reprehenderit tempora porro error consectetur dolor?</p>
-      </div>
-    </div>
- </div>
-</section>
-<section class="grid items-center w-full h-full min-h-screen grid-cols-2 gap-10 pt-20 bg-white">
-     <div class="h-full col-span-1">
-      <img src="{% static 'assets/union-2.png' %}"  alt="Heros image" />
-     </div>
-     <div>
-      <h2 class="my-5 text-4xl font-bold text-stone-800">Comment fonctionne le programme de développement des talents étrangers en environnement ?</h2>
-        <ul role="list" class="pl-5 space-y-3 text-lg list-disc marker:text-sky-600 text-stone-700">
-          <li>Consultant agréé au Canada</li>
-          <li>Consultant agréé au Canada</li>
-          <li>Consultant agréé au Canada</li>
-        </ul>
-     </div>
- </section>
- <section class="relative py-20 overflow-hidden" id="about">
-  <img src="{% static 'assets/svg56.png' %}" class="absolute -top-10 -left-40" alt="Heros image" />
-  <h2 class="py-2 my-8 text-4xl font-bold text-center text-sky-700">A propos de nous</h2>
-  <p class="max-w-4xl m-auto text-lg text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quos natus beatae necessitatibus nemo molestiae ab illo distinctio. Eligendi repudiandae cupiditate similique quis quasi officia commodi hic iusto sapiente recusandae.</p>
-  <div class="grid grid-cols-3 my-8">
-    <div class="col-span-1"></div>
-    <div class="flex col-span-2 gap-2">
-      <div class="bg-black w-96 h-52 ">
+  .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      
+      width: 100%;
+      margin: 20px 0;
+      padding: 10px 30px;
+      /* border: 1px solid; */
+  }
+
+  .apropos {
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .contactez-nous {
+    justify-content: center;
+    gap: 0px;
+    width: 80%;
+    padding: 0;
+    /* margin-top: -40px; */
+    border-radius: 10px;
+  }
+
+  .temoignage-chiffre {
+    background-color: #2D3845;
+    justify-content: left;
+    gap: 25px;
+    align-items: flex-start;
+  }
+
+  .temoignages {
+    max-width: 55%;
+    padding: 15px;
+  }
+
+  .temoignages h2, .chiffres h2 {
+    text-transform: uppercase;
+    color: #c5bdbd;
+    font-size: 0.8em;
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 1px;
+  }
   
-      </div>
-      <div class="bg-black w-96 h-52 ">
+  .temoignages p {
+    font-size: 1.9em;
+    font-weight: 400;
+    color: #fff;
+    text-align: left;
+  }
+
+  .personne {
+    max-width: 100%;
+    display: flexbox;
+    align-items: center;
+    gap: 30px;
+    padding: 10px 0;
+  }
+
+  .personne img {
+    max-width: 150px;
+    object-fit: cover;
+    display: inline;
+    border-radius: 50%;
+    min-height: 100px;
+  }
+
+  .personne h3 {
+    max-width: 58%;
+    font-size: 1.2em;
+    color: white;
+    font-weight: 400;
+    margin-left: 15px;
+    display: inline;
+  }
+
+  .t-message p{
+    font-size: 1em;
+    text-align: justify;
+  }
+
+  .chiffres {
+    padding: 10px;
+    max-width: 50%;
+    margin-left: 50px;
+  }
+
+  .counter {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+  }
+
+  .ntext {
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin-left: 15px;
+  }
+
+  .chiffres ul {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image {
+    max-width: 40%;
+  }
+
+  .image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .message {
+    max-width: 60%;
+    padding: 40px;
+    height: 250px ;
+    background-color: #fff;  
+  }
+
+  .message h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 7px;
+  }
+
+  .message a {
+      display: block;
+      background: #3A72B9;
+      border-radius: 4px;
+      text-align: center;
+      line-height: 40px;
+      border-bottom: 2px solid black; /*#0067DA*/
+      margin-top: 13px;
+      color: white;
+      max-width: 50%;
+  }
+
+  .heading {
+    padding: 0;
+    background-image: url('/static/assets/banner2.jpg') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-top: 100px;
+    max-width: 100%;
+    height: 700px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  section{
+      padding-right: 35px;
+      padding-left: 35px;
+   
+  }
+
+  .s-contact {
+    margin-left: 170px;
+  }
+
+  .text-1 {
+    max-width: 35%;
+    /* flex-grow: 1;
+    border: 1px solid #000; */
+  }
+
+  .text-1 h2 {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    color: #0E2D50;
+  }
+
+  .text-1 p {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: rgb(173, 175, 179);
+    letter-spacing: 1px;
+  }
+
+  .text-2 {
+    max-width: 61%;
+    flex-grow: 1;
+    text-align: justify;
+    /* border: 1px solid #000; */
+    line-height: 1.7;
+    font-weight: 500;
+    font-size: 1.1em;
+  }
+
+  .text-2 span {
+    color: rgb(18, 17, 109);
+    margin: 20px 0 10px 0;
+    display: block;
+  }
+
+  .video {
+    padding: 0;
+    margin-top: 25px;
+    width: 100%;
+    background-image: url('/static/assets/bg_video1.jpg') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .video-title {
+    text-align: center;
+    color: black;
+    margin: 30px auto;
+    padding: 10px;
+  }
+
+  .video-title h3{
+    font-size: 2em;
+    font-weight: 750;
+  }
+
+  .video-title p{
+    font-size: 1em;
+    font-weight: 500;
+    margin: 5px auto;
+  }
+
+  .video video {
+    width: 80%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 3px;
+    margin: 10px auto 70px auto;
+  }
+
+  .img-container {
+    max-width: 38%;
+  }
+
+  .img-container img {
+    width: 100%;
+    height: 350px;
+  }
+
+  .content {
+    max-width: 59%;
+    background-color: white;
+  }
+  .row:not(:last-child) {
+    border-bottom: 1px solid #c4c3c3;
+  }
+
+  .row {
+    padding: 20px;
+  }
+
+  .row div {
+    padding: 0 20px;
+  }
+
+  #missions {
+    text-align: justify;
+  }
+
+  .head-title {
+    background-color: #fff;
+    padding: 20px;
+    display: inline-block;
+    margin: 270px 40px 0 0;
+    float: right;
+    clear: right;
+    text-align: center;
+  }
+
+  .head-title h1 {
+    font-size: 2em;
+    color: #3A72B9; /*#3A72B9*/
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+
+  .head-title p {
+    font-size: 1.5em;
+    color: #000;
+  }
+
+  /* Styles responsifs */
+
+  @media screen and (min-width: 860px) {
+    .heading {
+      z-index: 0;
+      margin-top: 150px;
+    }
+    .historique {
+      position: relative;
+      margin-top: -20px;
+      z-index: 1;
+      padding: 50px;
+    }
+  }
+
+  @media screen and (max-width: 1249px) {
   
+    .image {
+      max-width: 100%;
+    }
+
+    .image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .message {
+      max-width: 100%;
+      padding: 30px;
+      background-color: #fff;  
+    }
+
+    @media screen and (max-width: 916px) {
+      .content {
+        max-width: 75%;
+      }
+
+      .img-container {
+        display: none;
+      }
+
+      .apropos {
+        justify-content: left;
+      }
+
+      .row {
+        padding: 10px 0;
+      }
+
+      .s-contact {
+        margin: 20px 0 20px 250px;
+      }
+
+      .contactez-nous {
+        width: 100%;
+        justify-content: right;
+      }
+
+      .chiffres {
+        margin: 0;
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .ntext {
+        font-size: 15px;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .video{
+      margin-bottom: 30px;
+    }
+    .video video {
+        width: 90%;
+        height: 300px;
+        object-fit: cover;
+        margin-bottom: 30px;
+      }
+    .video-title h3{
+      font-size: 1.5em;
+    }
+
+    .video-title p{
+      font-size: 0.9em;
+    }
+    .content{
+      border-right: 1px solid #c4c3c3;
+    }
+
+    section{
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    .text-1, .text-2 {
+      min-width: 100%;
+    }
+
+    .text-1 {
+      margin-bottom: 15px;
+    }
+
+    .heading{
+      height: 300px;
+    }
+
+    .flex-container {
+      padding: 10px 20px;
+    }
+
+    .head-title{
+      margin: 170px 30px 0 30px;
+      padding: 15px;
+      opacity: 0.9;
+    }
+
+    .head-title h1 {
+      font-size: 1.2em;
+      font-weight: 750;
+      letter-spacing: normal;
+    }
+
+    .head-title p {
+      font-size: 1em;
+      font-weight: 500;
+    }
+
+    .content {
+      max-width: 85%;
+    }
+
+    .message h2 {
+      font-size: 1.1em;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 7px;
+    }
+
+    .message p {
+      font-size: 0.8em;
+      text-align: justify;
+    }
+
+    .s-contact {
+      margin: 20px 0 20px 75px;
+    }
+
+    .message {
+      padding: 20px;
+    }
+
+    .message a {
+      max-width: 70%;
+      font-size: 0.8em;
+    }
+      
+    .temoignages {
+      max-width: 100%;
+      border-bottom: 1px solid #c4c3c3;
+    }
+
+    .personne img {
+      max-width: 100px;
+      min-height: 90px;
+    }
+
+    .chiffres{
+      margin-left: 30px;
+    }
+
+
+  }
+
+</style>
+
+<section class="heading">
+  <div class="head-title">
+    <h1>Bienvenue à LK Education</h1>
+    <p>La référence en matière de mobilité estudiantine</p>
+  </div>
+</section>
+
+<section id="historique">
+  <div class="flex-container bg-white historique">
+    <div class="text-1">
+      <p>QUI SOMMES NOUS ?</p>
+      <h2>LK EDUCATION</h2>
+    </div>
+    <div class="text-2">
+      <p>LK Education est un écosystème qui souhaite développer le continent Africain en développant le potentiel des 
+        Africains. Nous sommes convaincus que l’accompagnement des « African Leaders » (Leaders Africain) dans leur formation,
+        développement de leurs activités est la base du renouveau Africain. 
+        Nous formons des leaders qui sont capables de rendre le continent prospère.
+        <span>#Ensemble, bâtissons votre avenir</span>
+      </p>
+    </div>
+    
+  </div>
+</section>
+  <div class="video">
+    <div class="video-title">
+      <h3>Découvrez LK EDUCATION en vidéo</h3>
+      <p>Découvrez la structure d'accompagnement qui vous offre un package complet pour votre projet de mobilité.</p>
+    </div>
+    <video src="{% static 'assets/Spot_Lk.mp4' %}" controls poster="{% static 'assets/8401.jpg' %}" l> </video >
+  </div> 
+
+
+<section>
+  <div class="apropos flex-container">
+    <div class="img-container">
+      <img src="{% static 'assets/mission2.png' %}" alt="" loading="lazy">
+    </div>
+    <div class="content">
+      <div class="row">
+        <div id="missions">
+          <h3>Notre Mission</h3>
+          <h4>Nous croyons en l'importance de l'éducation internationale et nous 
+            sommes déterminés à aider les étudiants à réaliser leurs rêves d'étudier en Europe. Notre engagement est de fournir 
+            des services de haute qualité assistant ainsi nos étudiants à chaque étape de leur parcours éducatif, 
+            depuis la recherche de programmes jusqu'à l'installation en Europe."</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div id="atouts">
+          <h3>Nos Atouts</h3>
+          <h5>L'expertise, un accompagnement personnalisé et une écoute permanente</h5>
+          <p>Nous combinons une connaissance approfondie du système éducatif européen avec une compréhension des besoins 
+            uniques de chaque étudiant. Notre réseau étendu de partenaires éducatifs et de logement nous permet de proposer des solutions 
+            sur mesure. De plus, notre approche centrée sur l'étudiant nous distingue, car nous mettons toujours les 
+            besoins de nos étudiants au premier plan de nos services."</p>
+        </div>
+      </div>
+      <div class="row">
+        <div id="valeurs">
+          <h3>Nos valeurs</h3>
+          <h5>3 valeurs fortes: Proximite, respect, innovation</h5>
+          <p>Ces valeurs se traduisent par une approche pédagogique tournée vers la réussite et le bien-être des étudiants 
+            : orientation, accompagnement, suivi personnalisé, élaboration du projet professionnel...</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
-{% endblock content %}
+
+<section class="s-contact">
+    <div class="flex-container contactez-nous">
+      <!-- <div style="background-color: #fff;"> -->
+        <div class="image">
+          <img src="{% static 'assets/confiance.png' %}"  alt="Heros image" />
+        </div>
+        <div class="message">
+          <h2>Choisissez votre domaine d'études et on s'occupe du reste</h2>
+          <p>Entrez en contact avec nous dès aujourd'hui en remplissant notre formulaire de contact en ligne 
+            et nous vous répondrons dans les plus brefs délais</p>
+            <a href="{% url 'contact' %}">Contactez-nous       <i class="fa fa-long-arrow-right"></i></a>
+        </div>
+      <!-- </div> -->
+    </div>
+</section>
+
+ <section> <!-- TEMOIGNAGES + CHIFFRES -->
+  <div class="flex-container temoignage-chiffre">
+
+     <div class="temoignages">  <!-- DIV TEMOIGNAGES -->
+      <h2>Témoignages</h2>
+      <p>Ce qu'ils disent de nous!</p>
+
+       <div class="slide" style="display: none;"> <!-- TEMOIGNAGE ISRAEL -->
+        <div class="personne">
+          <img src="{% static 'assets/8401.jpg' %}" alt="Photo candidat">
+          <h3 style="font-weight: 500 ;">Israël</h3>
+        </div>
+        <div class="t-message">
+          <p>Bonsoir Monsieur Kom, 
+            J'espère que ce message vous trouve en excellente santé, vous et toute votre famille.
+            Je viens par la présente vous faire part que, mon frère Nathan et moi avons obtenus notre Bachelor en Finance Internationale à Sup De Co (Licence Internationale).
+            On tenait énormément à vous remercier car, nous devons tout ceci à l'accompagnement, aux conseils et aux cours de mobilité de LK EDUCATION. 
+            Notre background de pensée s'est élevé par votre forte présence auprès de nous à des moments critiques de la vie. 
+            Merci encore pour tout Monsieur.
+            Cordialement, 
+            Israël.
+          </p>
+        </div>
+      </div>
+       <div class="slide" style="display: none;"> <!-- TEMOIGNAGE ASTRID -->
+        <div class="personne">
+          <img src="{% static 'assets/8401.jpg' %}" alt="Photo candidat">
+          <h3 style="font-weight: 500 ;">Astrid Amougou</h3>
+        </div>
+        <div class="t-message">
+          <p>LK Education a rendu possible mon rêve de poursuivre mes études en France. 
+            <br>Mon expérience avec LK Education est exceptionnelle : j'ai découvert une équipe de professionnels engagés, 
+            accueillants et toujours disponibles à surmonter avec moi les obstacles que je rencontrais. Ils m'ont orienté 
+             dans le choix des établissements sur la plateforme Campus France, en veillant à ce que ces derniers 
+            soient en accord avec mon parcours scolaire;  J'ai bravé haut la mainà mon entretien Campus France grâce 
+            aux sessions de préparation faites avec Mme Rachel; J'ai été admise dans une université publique, 
+            me suis inscrite et ai soumis ma demande à l'ambassade.
+            <br>Aujourd'hui, j'étudie à l'université de Paris Cité, dans la ville de Paris où LK Education m'a trouvé un logement.
+            
+            <br>Je tiens à renouveler ma gratitude envers LK Education et son équipe, ils ont abattu un travail formidable
+            avec moi. 
+          </p>
+        </div>
+      </div>
+       <div class="slide" style="display: none;"> <!-- TEMOIGNAGE DAVID -->
+        <div class="personne">
+          <img src="{% static 'assets/david.jpg' %}" alt="Photo David">
+          <h3 style="font-weight: 500 ;">David</h3>
+        </div>
+        <div class="t-message">
+          <p>Je suis un étudiant passé par LK Éducation et je suis très satisfait de la manière dont ils m'ont suivi 
+            pour l'obtention de mon inscription et de mon visa pour une grande école en France. Leur équipe a toujours é
+            té à l'écoute de mes besoins et réactive en cas de problèmes. 
+
+            <br>Chaque fois que j'ai eu un souci ou une question, ils ont pris le temps de m'écouter et de trouver rapidement 
+            des solutions adaptées à mon dossier. Leur professionnalisme et leur volonté de s'assurer que je suis satisfait 
+            ont réellement renforcé ma confiance durant toute ma procédure.
+            
+            <br>En résumé, je suis très reconnaissant de l'attention et du suivi par LK Éducation, et je recommande vivement 
+            leur expertise dans l'accompagnement de vos projets d'études à l'étranger.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <script> // Pour le slider
+      const slides = document.querySelectorAll('.slide');
+              let currentSlide = 0;
+      
+              function showSlide(slideIndex) {
+                  slides.forEach((slide, index) => {
+                      if (index === slideIndex) {
+                          slide.style.display = 'block';
+                      } else {
+                          slide.style.display = 'none';
+                      }
+                  });
+              }
+      
+              function nextSlide() {
+                  currentSlide = (currentSlide + 1) % slides.length;
+                  showSlide(currentSlide);
+              }
+      
+              // Démarrez le défilement automatique toutes les 10 secondes (10000 millisecondes)
+              setInterval(nextSlide, 10000);
+        // Affichez la première diapositive au chargement de la page
+              showSlide(currentSlide);
+    </script>
+
+     <div class="chiffres"> <!-- DIV CHIFFRES -->
+      <h2>Quelques chiffres</h2>
+      <ul>
+        <li>
+          <div>
+            <span class="counter" data-target="10">0</span>
+            <span class="ntext">Années d'expérience</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="counter" data-target="100">0</span>
+            <span class="ntext">Universités partenaires</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="counter" data-target="500">0</span>
+            <span class="ntext">Formations</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="counter" data-target="50">0</span>
+            <span class="ntext">Visas chaque année</span>
+          </div>
+        </li>
+      </ul>
+
+      <script> // Pour l'animation des chiffres
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // Vitesse de l'animation (plus la valeur est petite, plus l'animation est rapide)
+        
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                
+                const increment = target / speed;
+        
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+        
+            updateCount();
+        });
+        
+      </script>
+
+    </div>
+
+  </div>
+</section>
+{% endblock content %}  

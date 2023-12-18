@@ -10,9 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LK Education</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {% compress css %}
+    <!-- <link rel="stylesheet" href="{% static 'src/Bootstrap.min.css' %}"> -->
     <link rel="stylesheet" href="{% static 'src/output.css' %}">
-    <link rel="stylesheet" href="{% static 'dist/css/font-awesome.min.css' %}">
     {% endcompress %}
 
     {% block css %} {% endblock css %}
@@ -21,17 +22,19 @@
 
 <body class="relative bg-blue-50">
     <!-- Header section -->
+    <script src="{% static 'js/jquery.js' %}"></script>
     {% include "components/header.html" %}
     <!-- Fin Header section -->
     {% block content %}
     {% endblock content %}
     <!-- Footer section -->
-    <section class="fixed max-w-sm p-5 rounded-lg shadow-2xl bg-sky-700 from-cyan-200 bg-gradient-to-br right-10 bottom-10">
+    <!-- <section class="fixed max-w-sm p-5 rounded-lg shadow-2xl bg-sky-700 from-cyan-200 bg-gradient-to-br right-10 bottom-10">
         {% include "components/chatbot.html" %}
-    </section>
+    </section> -->
     {% include "components/footer.html" %}
     <!-- Fin Footer section -->
     <script src="{% static 'js/diaporama.js' %}" ></script>
 </body>
+
 
 </html>

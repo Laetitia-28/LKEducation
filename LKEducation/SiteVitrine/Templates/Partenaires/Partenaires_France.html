@@ -1,0 +1,45 @@
+{% extends "_base.html" %}
+
+{% block content %}
+{% load static %}
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .heading {
+            padding: 0;
+            background-image: url('/static/assets/france.jpg') ;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin-top: 100px;
+            max-width: 100%;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+        @media screen and (min-width: 860px) {
+            .heading {
+                z-index: 0;
+                margin-top: 150px;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .heading{
+                height: 200px;
+            }
+        }
+    </style>
+    <section class="heading">
+        
+    </section>
+    <div class="partners">
+        <img src="https://static.wixstatic.com/media/c86cec_03d5940c3800474da967cce776ba260f~mv2.png/v1/fill/w_759,h_749,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/Commerce.png"/>
+        <img src="https://static.wixstatic.com/media/c86cec_eb777822ab114e24b2c32f35f06a8190~mv2.png/v1/fill/w_759,h_765,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/Commerce%202.png"/>
+        <img src="https://static.wixstatic.com/media/c86cec_e02602effd554e3c908d14fe700bc730~mv2.png/v1/crop/x_0,y_0,w_1080,h_568/fill/w_759,h_399,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Commerce%203.png"/>
+
+        <img src="https://static.wixstatic.com/media/c86cec_c986e6c064fa49a8a71c44fd01e33139~mv2.png/v1/crop/x_0,y_0,w_1080,h_821/fill/w_759,h_577,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/Art.png">
+        <img src="https://static.wixstatic.com/media/c86cec_5dfb651f74964e98923e5d0af4ed41f1~mv2.png/v1/crop/x_0,y_0,w_1080,h_821/fill/w_759,h_577,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/Ing%C3%A9nieur.png">
+    </div>
+{% endblock content %}

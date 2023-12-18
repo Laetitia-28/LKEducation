@@ -2,53 +2,68 @@
 
 {% block content %}
 {% load static %}
-<!-- Header section -->
-<section class="w-full py-20">
-    <div class="grid w-full grid-cols-3 gap-4 m-auto max-w-7xl">
-                <div class="row-span-1 overflow-hidden " onclick="creatediapo($event)">
-                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
-                </div>
-                <div class="row-span-1 overflow-hidden ">
-                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
-                </div>
-                <div class="row-span-1 overflow-hidden ">
-                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
-                </div>
-                <div class="row-span-1 overflow-hidden ">
-                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
-                </div>
-                <div class="row-span-1 overflow-hidden ">
-                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
-                </div>
-                <div class="row-span-1 overflow-hidden ">
-                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
-                </div>
-                <div class="row-span-1 overflow-hidden ">
-                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
-                </div>
-                <div class="row-span-1 overflow-hidden ">
-                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
-                </div>
-                <div class="row-span-1 overflow-hidden ">
-                    <img src="{% static 'assets/8401.jpg' %}" class="w-full h-full rounded-md" alt="Heros image" />
-                </div>
-            </tr>
-        </table>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .gallery {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            max-width: 1500px;
+            margin: 80px auto 0 auto;
+            padding: 20px 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 400px;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        @media screen and (min-width: 860px) {
+            .gallery{
+                margin-top: 170px;
+            }
+        }
+
+    </style>
+
+    <div class="gallery">
+        <img src="{% static 'assets/Galerie/Conf_yde_1.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_yde_2.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_yde_3.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_1.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_2.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_3.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_4.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_5.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_6.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_7.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_8.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_9.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_10.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_11.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_12.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_13.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_14.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_15.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_16.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_17.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_18.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_19.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_20.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_21.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_22.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_23.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_24.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_25.png' %}"/>
+        <img src="{% static 'assets/Galerie/Conf_dla_26.png' %}"/>
     </div>
-</section>
-<section id="detailImage"  class="fixed top-0 left-0 items-center hidden w-full h-full text-center" style="background-color: rgba(0, 0, 0, 0.302);">
-    <div class="max-w-6xl m-auto overflow-hidden" >
-        <img src="" id="itemdiapo" class="w-full h-full rounded-md" alt="Heros image" />
-    </div>
-    <button onclick="closediapo()" class="w-full max-w-4xl px-3 py-2 m-auto mt-2 text-white bg-red-500 rounded-lg focus:ring-red-200 focus:ring-4 focus:outline-none active:bg-red-700 from-rose-400 bg-gradient-to-br hover:bg-red-600">
-        Fermer
-    </button>
-    <button style="right: 0;" class="absolute w-40 px-4 py-2 -translate-y-1/2 bg-white top-1/2 "   >
-        Suivant
-    </button>
-    <button style="left: 0;" class="absolute w-40 px-4 py-2 -translate-y-1/2 bg-white top-1/2 ">
-        Precedent
-    </button>
-</section>
-<script src="{% static 'js/diaporama.js' %}" ></script>
 {% endblock content %}

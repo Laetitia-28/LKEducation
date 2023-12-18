@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouvelle Inscription</title>
+</head>
+<body>
+    <p style="font-size: 1.2em;"><strong style="text-transform: capitalize;">{{ nom_et_prenom }}</strong> vient de soumettre un formulaire. Détails ci-dessous :</p>
+    <p style="font-size: 1.2em; margin-left: 20px; margin-top: 30px;"><strong>Nom complet :</strong> <span style="text-transform: capitalize;">{{ nom_et_prenom }}</span></p>
+    <p style="font-size: 1.2em; margin-left: 20px;"><strong>Email :</strong> {{ email }}</p>
+    <p style="font-size: 1.2em; margin-left: 20px;"><strong>Téléphone :</strong> {{ contact }}</p>
+    <p style="font-size: 1.2em; margin-left: 20px;"><strong>Objet :</strong> {{ sujet }}</p>
+    <p style="font-size: 1.2em; margin-left: 20px;"><strong>Contenu du message :</strong></p>
+    <p style="font-size: 1.2em; margin-left: 20px;">{{ message }}</p>
+</body>
+</html>

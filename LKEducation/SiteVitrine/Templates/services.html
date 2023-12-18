@@ -1,0 +1,215 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        width: 100%;
+        margin: 120px auto 10px auto;
+        padding: 10px 10px;
+    }
+
+    section{
+        padding-right: 15px;
+        padding-left: 25px;
+     
+    }
+
+    .image-container{
+        max-width: 40% ;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 3px;
+    }
+
+    .content {
+        max-width: 56%;
+        padding: 0 15px;
+    }
+
+    .content p {
+        text-align: justify;
+    }
+
+    .content ul {
+        list-style: inside;
+        margin-left: 20px;
+    }
+
+    .bg-light {
+        background-color: rgba(218, 228, 238, 0.75);
+    }
+
+    /* Styles responsifs */
+    @media screen and (min-width: 861px){
+        .order-first {
+            order: 1;
+        }
+        .order-last {
+            order: 2;
+        }
+        .flex-container{
+            margin-top: 160px;
+        }
+    }
+
+    @media screen and (max-width: 860px) {
+        .image-container {
+            max-width: 100%;
+        }
+
+        .content {
+            max-width: 100%;
+        }
+
+        .image-container img{
+            height: 200px;
+            object-fit: cover;
+        }
+
+        section{
+            padding-left: 0;
+            margin-left: 20px;
+        }
+    }
+
+</style>
+
+<section>
+    <div class="flex-container">
+       <div class="image-container">
+            <img src="{% static 'assets/orientation1.png' %}" alt="..." />
+        </div>
+        <div class="content">
+            <h3>L'orientation</h3>
+            <p>Notre service d'orientation personnalisée aide les étudiants à choisir le bon chemin pour leur avenir. Nous 
+                travaillons en étroite collaboration avec chaque étudiant pour comprendre ses objectifs académiques et 
+                professionnels. Grâce à des conseils experts, nous les aidons à choisir les programmes et les universités 
+                qui correspondent le mieux à leurs aspirations. </p>
+        </div> 
+    </div>
+</section>
+<section>
+    <div class="flex-container bg-light" style="margin-top: 0;">
+       <div class="image-container order-last">
+            <img src="{% static 'assets/admission.png' %}" alt="..." />
+        </div>
+        <div class="content order-first">
+            <h3>Recherche d'admission</h3>
+            <p>Notre équipe compétente se charge de la recherche d'admission dans les établissements d'enseignement 
+                supérieur en Europe. Nous gérons le processus de candidature, comprenant : 
+                <Ul>
+                    <li>La rédaction des lettres de motivation,</li>
+                    <li>La rédaction du curriculun vitae,</li>
+                    <li>La préparation des dossiers d'admission, numériques comme physiques.</li>
+                </Ul>
+                Nous visons à maximiser les chances de nos étudiants d'obtenir une place dans leur programme de rêve."</p>
+        </div> 
+    </div>
+</section>
+<section>
+    <div class="flex-container" style="margin-top: 0;">
+       <div class="image-container">
+            <img src="{% static 'assets/Cours.jpg' %}" alt="..." />
+        </div>
+        <div class="content">
+            <h3>Cours de remise à niveau</h3>
+            <p>Nous comprenons que chaque étudiant a des besoins académiques uniques. 
+                Nos cours de remise à niveau visent à combler les lacunes et à renforcer les compétences nécessaires 
+                pour réussir dans le programme choisi. Nos instructeurs qualifiés offrent un soutien individualisé pour 
+                garantir la réussite académique et par la même occasion, renforcer le dossier de nos étudiants. Les différentes
+                options de classe de mobilité sont : 
+                <ul>
+                    <li>Business</li>
+                    <li>Ingénierie</li>
+                    <li>Santé</li>
+                </ul>
+                <br>Les principaux cours dispensés (tronc commun) sont : 
+                <ul>
+                    <li>Informatique</li>
+                    <li>Mathématiques</li>
+                    <li>Anglais</li>
+                    <li>Français</li>
+                    <li>Découverte de l'entreprise</li>
+                    <li>Projet Entrepreneurial</li>
+                </ul>
+            </p>
+        </div> 
+    </div>
+</section>
+<section>
+    <div class="flex-container bg-light" style="margin-top: 0;">
+        <div class="image-container order-last">
+             <img src="{% static 'assets/coaching.png' %}" alt="..." />
+         </div>
+         <div class="content order-first">
+             <h3>Coaching et Préparation aux entretiens/concours</h3>
+             <p>Tous les étudiants sont confrontés à au moins un entretien : l'entretien Campus France. 
+                <br>D'autres en supplément font face à des entretiens d'admission et même des concours. 
+                <br>Dans l'optique de permettre à nos étudiants de se présenter sous leur meilleur jour et de manière
+                confiante, nous leur offrons des séances de coaching personnalisées, des simulations d'entretiens et des conseils.</p>
+         </div> 
+    </div>
+
+    <div class="flex-container" style="margin-top: 0;">
+       <div class="image-container">
+            <img src="{% static 'assets/logement.png' %}" alt="..." />
+        </div>
+        <div class="content">
+            <h3>Recherche de logement</h3>
+            <p>Trouver un logement dans un pays étranger peut être complexe. Nous prenons en charge la recherche de 
+                logement, de la résidence universitaire aux appartements privés, en nous assurant que nos étudiants 
+                disposent d'un endroit sûr et confortable où vivre pendant leurs études. </p>
+        </div> 
+    </div>
+
+    <div class="flex-container bg-light" style="margin-top: 0;">
+        <div class="image-container order-last">
+             <img src="{% static 'assets/caution.png' %}" alt="..." />
+         </div>
+         <div class="content order-first">
+             <h3>Mise en place de la caution bancaire / garant</h3>
+             <p>La caution bancaire est une étape importante et souvent capitale dans la procédure et décision visa.
+                Cette une somme d'argent à bloquer dans un compte bancaire, qui servira de moyen de subsidance à l'étudiant une fois arrivé en Europe.
+                Nous aidons nos étudiants à mettre en place cette caution bancaire et dépendamment du pays de destination, le garant financier pour d'autres.
+                Nous travaillant en collaboration avec des institutions financières de confiance pour garantir un processus fluide.</p>
+         </div> 
+     </div>
+
+    <div class="flex-container" style="margin-top: 0;">
+        <div class="image-container">
+             <img src="{% static 'assets/visa.png' %}" alt="..." />
+         </div>
+         <div class="content">
+             <h3>Service visa</h3>
+             <p>L'obtention du visa d'étudiant est l'étape cruciale et finale de la procédure de mobilité. 
+                Notre équipe expérimentée guide nos étudiants à travers le processus de demande de visa :
+                <ul>
+                    <li>Prise de rendez-vous à l'ambassade</li>
+                    <li>Remplissage du formulaire de demande de visa en ligne</li>
+                    <li>Constitution du dossier de visa</li>
+                    <li>Assistance dans les différents paiements à effectuer en ligne</li>
+                    <li>Assurance voyage et billeterie</li>
+                </ul>    
+            </p>
+         </div> 
+     </div>
+</section>
+
+{% endblock %}

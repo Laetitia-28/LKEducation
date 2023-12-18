@@ -1,0 +1,115 @@
+{% extends "_base.html" %}
+
+{% block content %}
+{% load static %}
+<style>
+    .form-group {
+        margin: 0 auto 0.75em auto;
+        padding: 0.25rem;
+    } 
+
+    #description {
+        font-style: italic;
+        font-weight: 200;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    #submit {
+        height: 2.5rem;
+        background-color: #3A72B9;
+        color: white;
+        width: 100%;
+        min-height: 2.5em;
+        border: 1px  white; 
+        border-radius: 3px;
+    }
+
+    .contact-form {
+        margin-top: 140px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    #survey-form {
+        background-color: #F2F2F3;
+        width: 100%;
+        max-width: 700px;
+        gap: 10px;
+        margin: 10px;
+        border: 2px solid #3A72B9;
+        padding: 10px;
+    }
+
+    #personnal_info {
+        background-color: white;
+        padding: 10px;
+        margin: 10px;
+        width: 100px;
+        text-align: center;
+        color: black;
+    }
+
+    #personnal_info p, ul{
+        font-size: 0.9em;
+    }
+
+
+    .enlarge {
+        font-size: 1.1em;
+    }
+
+    h5{
+        margin: 8px 0 3px 0;
+        font-weight: 600;
+    }
+
+    @media screen and (min-width: 860px) { /*992px*/
+        .contact-form{
+            margin-top: 170px;
+        }
+    }
+</style>
+<!-- Header section -->
+<!-- Header section -->
+<div class="min-h-screen ">
+    <section style="font-family: 'Poppins', sans-serif;"> 
+    
+        <div class="contact-form">
+
+                <form id="survey-form" method="POST" enctype="multipart/form-data" action="{% url 'contact' %}">
+                            {% if messages %}
+                                <ul>
+                                    {% for message in messages %}
+                                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color: red; text-align: center; font-size: 14px;">{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                            
+                            <h1 style="text-align: center; font-size: 1.8em; margin-bottom: 10px; font-weight: 600; color: #0E2D50;">Formulaire De Contact</h1>
+                            {% csrf_token %}
+                            <p id="description">Dites nous en quoi nous pouvons vous aider.</p>
+            
+                            {% for field in form %}
+                                <div class="form-group">
+                                    <label for="{{ field.id_for_label }}" class="enlarge">{{ field.label }} <span style="color: red;">*</span></label><br>
+                                    {{ field }} <br>
+                                </div>
+                            {% endfor %}
+            
+                    <div class="form-group">    
+                        <button id="submit">
+                            Envoyer
+                        </button>
+                    </div>
+                    
+                </form>  
+
+        </div>
+    </section>
+</div>
+{% endblock content %}

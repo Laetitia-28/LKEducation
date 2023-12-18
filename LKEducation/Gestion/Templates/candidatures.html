@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% load static %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Liste des candidatures</h1>
+          </div><div></div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+              <li class="breadcrumb-item active">Candidatures</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <style>
+        #modalForm{
+         display: flex;
+       }
+       #modalForm.hidden{
+         display: none;
+       }
+     </style>
+     <!-- Formulaire  -->
+     <section id="modalForm" style=" justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.081); position: fixed; width: 100%; height: 100%; z-index: 50; top: 0; left: 0;" class="hidden">
+       <div class="card card-primary" style="max-width: 500px; max-height: 600px;">
+         <div class="card-header">
+           <h3 class="card-title">Ajoutez une nouvelle candidature</h3>
+         </div>
+         <!-- /.card-header -->
+         <!-- form start -->
+         <form>
+           <div class="card-body">
+             <div class="form-group">
+               <label for="nom">Ecole</label>
+               <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+             </div>
+             <!-- <div class="form-group">
+                <label for="prenom">Prenom</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+              </div> -->
+              <div class="form-group">
+                <label for="exampleInputEmail1">Programme + Niveau</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label for="contact">Date Candidature</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+              </div>
+             <div class="form-group">
+               <label for="exampleInputPassword1">Statut</label>
+               <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+             </div>
+             <!-- <div class="form-group">
+                <label for="exampleInputPassword1">Confirmation du mot de passe</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div> -->
+             <div class="form-group">
+               <label for="exampleInputFile">File input</label>
+               <div class="input-group">
+                 <div class="custom-file">
+                   <input type="file" class="custom-file-input" id="exampleInputFile">
+                   <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                 </div>
+                 <div class="input-group-append">
+                   <span class="input-group-text">Upload</span>
+                 </div>
+               </div>
+             </div>
+             <!-- <div class="form-check">
+               <input type="checkbox" class="form-check-input" id="exampleCheck1">
+               <label class="form-check-label" for="exampleCheck1">Check me out</label>
+             </div> -->
+           </div>
+           <!-- /.card-body -->
+
+           <div class="card-footer">
+             <button type="submit" class="btn btn-primary">Submit</button>
+             <button type="button" onclick="closeModal()" class="btn btn-danger">Annuler</button>
+           </div>
+         </form>
+       </div>
+     </section>
+     <script>
+       const closeModal = () => {
+         const modalForm = document.getElementById('modalForm').classList.add('hidden')
+       }
+       const openModal = () => {
+         const modalForm = document.getElementById('modalForm').classList.remove('hidden')
+       }
+     </script>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+
+
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title"></h3>
+                  <div class="form-inline">
+                    <div class="input-group" data-widget="sidebar-search">
+                      <input class="form-control form-control-sidebar" type="search" placeholder="Search"
+                        aria-label="Search">
+                      <div class="input-group-append">
+                        <button class="btn btn-sidebar">
+                          <i class="fas fa-search fa-fw"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="openModal()">Nouvelle candidature ?</button>
+                  </div>
+
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th style="width: 1%">
+                                    #
+                                </th>
+                                <th style="width: 15%">
+                                  Candidat
+                              </th>
+                                <th style="width: 15%">
+                                    Ecole
+                                </th>
+                                <th style="width: 15%">
+                                    Programme + Niveau
+                                </th>
+                                <th style="width: 15%" >
+                                    Date Candidature
+                                </th>
+                                <th style="width: 20%" >
+                                  Statut
+                                </th>
+                                <th style="width: 10%">
+                                  Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    #
+                                </td>
+                                <td>
+                                  Tegang Farel
+                                </td>
+                                <td>
+                                  <p>ESAIP</p>
+                                </td>
+                                <td>
+                                  <p>Bachelor Ressources humaines 1</p>
+                                </td>
+                                <td>
+                                  <p>20/05/2023</p>
+                                </td>
+                                <td>
+                                  <p>En attente</p>
+                                </td>
+                               
+                                <td class="project-state">
+                                    <span class="badge badge-primary">Modifier</span>
+                                </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                  #
+                              </td>
+                              <td>
+                                Ndzie Fortune
+                              </td>
+                              <td>
+                                <p>UCO</p>
+                              </td>
+                              <td>
+                                <p>Bachelor Journalisme 3</p>
+                              </td>
+                              <td>
+                                <p>10/04/2023</p>
+                              </td>
+                              <td>
+                                <p>Admise</p>
+                              </td>
+                             
+                              <td class="project-state">
+                                  <span class="badge badge-primary">Modifier</span>
+                              </td>
+                          </tr>
+                          <tr>
+                            <td>
+                                #
+                            </td>
+                            <td>
+                              Tcheutchoua Jaurel
+                            </td>
+                            <td>
+                              <p>CLCF</p>
+                            </td>
+                            <td>
+                              <p>Bachelor Cinéma et Audiovisuel 2</p>
+                            </td>
+                            <td>
+                              <p>20/04/2023</p>
+                            </td>
+                            <td>
+                              <p>En attente</p>
+                            </td>
+                           
+                            <td class="project-state">
+                                <span class="badge badge-primary">Modifier</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+      <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+{% endblock content %}

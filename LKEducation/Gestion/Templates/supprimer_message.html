@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<div class="content-edit " style="background-color: rgba(0, 0, 0, 0.384); width: 100%; height: 100%; min-height: 92vh; align-items: center; display: flex;">
+    <div class="card card-primary ">
+        <div class="card-header" style="padding: 10px; padding-top: 5px; text-align: center;">
+            <span class="card-title" style="text-align: center; float: none;">Supprimer le message de {{ contact.nom_et_prenom }}?</span><br>
+        </div>
+        <form method="post" class="edit-form"
+            style="padding: 30px; justify-content: center; display: flex; flex-direction: column;"
+            action="{% url 'Gestion:supprimer_message' contact.id %}">
+            {% csrf_token %}
+            <!-- <button type="submit" class="btn btn-primary">Enregistrer les modifications</button> -->
+            <!-- /.card-body -->
+            <div class="card-footer" style="text-align: center;">
+                <button type="submit" class="btn btn-primary">Confirmer</button>
+                <a href="{% url 'Gestion:liste_contacts' %}">
+                    <button type="button" class="btn btn-danger">Annuler</button>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+<style>
+    .content-edit {
+        display: flex;
+        justify-content: center;
+    }
+
+    input {
+        width: 100%;
+        margin-left: 10px;
+    }
+    .card{
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.158) ;
+        width: 650px;
+    }
+</style>
+
+{% endblock content %}

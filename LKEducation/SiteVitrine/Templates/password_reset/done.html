@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Vos balises meta, titre, etc. ici -->
+</head>
+<body>
+    <!-- Votre contenu de page ici -->
+
+    <h2>E-mail de réinitialisation envoyé</h2>
+    <p>Nous avons envoyé un e-mail de réinitialisation du mot de passe à votre adresse e-mail. Veuillez vérifier votre boîte de réception.</p>
+    <p>Vous pouvez également copier et coller le lien de réinitialisation ci-dessous dans votre navigateur pour réinitialiser votre mot de passe :</p>
+<p><a href="{% url 'password_reset_confirm' uidb64=uid token=token %}">{% url 'password_reset_confirm' uidb64=uid token=token %}</a></p>
+
+    <!-- Autres balises HTML et contenu de page ici -->
+</body>
+</html>
